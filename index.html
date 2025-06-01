@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini AI Translator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 2rem;
+      }
+      label {
+        font-weight: bold;
+      }
+      select, textarea {
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        width: 300px;
+      }
+      input[type="submit"] {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+      }
+    </style>
+</head>
+<body>
+    <h2>🌐 Indian Language Translator</h2>
+    <form method="POST">
+        <label>From:</label><br>
+        <select name="src_lang" required>
+            <option>English</option>
+            <option>Hindi</option>
+            <option>Telugu</option>
+            <option>Tamil</option>
+            <option>Bengali</option>
+            <option>Kannada</option>
+        </select><br>
+
+        <label>To:</label><br>
+        <select name="tgt_lang" required>
+            <option>Hindi</option>
+            <option>Telugu</option>
+            <option>Tamil</option>
+            <option>Bengali</option>
+            <option>Kannada</option>
+            <option>English</option>
+        </select><br>
+
+        <textarea name="text" rows="4" cols="50" placeholder="Enter text here..." required></textarea><br>
+        <input type="submit" value="Translate">
+    </form>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    {% if translation %}
+        <h3>Translation:</h3>
+        <p>{{ translation }}</p>
+    {% endif %}
+</body>
+</html>
